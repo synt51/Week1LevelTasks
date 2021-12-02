@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -36,8 +37,8 @@ public class Intermediate {
     }
 
     public static void listDivisibleByThreeOrFive() {
-        print("Aber ich kann dir auch zeigen, welche Zahlen alles zwischen 1 und 100 durch 3 oder 5 teilbar sind.");
-        System.out.println("Hier die Liste:");
+        print("Aber ich kann dir auch zeigen, welche Zahlen alles zwischen 1 und 100 durch 3 (# vor der Zahl) oder 5 ($ vor der Zahl) teilbar sind.");
+        print("Hier die Liste:");
         for (int i = 1; i <= 100; i++) {
             if (i % 3 == 0 && i % 5 == 0) {
                 print("#$" + i);
@@ -52,10 +53,14 @@ public class Intermediate {
     }
 
     public static void savingUserWords() {
-        print("Soll ich bestimmte Wörter für dich speichern? Tippe y für ja, oder n für nein. :)");
+        Scanner scanner = new Scanner(System.in);
+        boolean InputActive = true;
+        ArrayList<String> WordsArray = new ArrayList<>();
+
+        print("Soll ich bestimmte Wörter für dich speichern? Tippe y für ja, oder n für nein und bestätige das mit ENTER. :)");
         String yn = userInput();
         if (yn.equalsIgnoreCase("y")) {
-            print("Welche Wörter soll ich speichern? :)");
+            print("Welches Wort soll ich speichern? :)");
         } else if (yn.equalsIgnoreCase("n")) {
             print("Alles klar, dann bis zum nächsten Mal! :)");
             System.exit(0);
@@ -63,22 +68,30 @@ public class Intermediate {
             print("Etwas ist schief gelaufen... Starte das Programm bitte neu :(");
             System.exit(0);
         }
-//        String whichWord = userInput();
-//
-//        while (!whichWord.equalsIgnoreCase("exit")){
-//            whichWord = "";
-//            System.out.println("Ok, " + whichWord + " wurde gespeichert. Welches Wort noch?");
-//            if (whichWord.equalsIgnoreCase("exit")){
-//                System.exit(0);
-//            }
-//        }
-//        System.out.println("Test ob es weiter geht.");
+        while (InputActive) {
+            print("Diese Wörter hast du bereits gespeichert:");
+            print("" + WordsArray);
+            String inputWord = scanner.nextLine();
+            WordsArray.add(inputWord);
+            print("Willst du ein weiteres Wort bei mir speichern? Tippe wieder y für ja, oder n für nein und bestätige das mit ENTER :)");
+            String inputInputActive = scanner.nextLine();
+            if (inputInputActive.equals("y")) {
+                //InputActive = true;
+                print("Wie lautet dein nächstes Wort? :)");
+            } else if (inputInputActive.equals("n")) {
+                print("Also kein weiteres Wort? Ok :(");
+                print("Deine gespeicherten Begriffe sind: " + WordsArray);
+                InputActive = false;
+            } else {
+                print("Etwas ist schief gelaufen... Starte das Programm bitte neu :(");
+                System.exit(0);
+            }
+        }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-
-        initConversation();
-        listDivisibleByThreeOrFive();
+    public static void main(String[] args) {
+      //initConversation();
+        // listDivisibleByThreeOrFive();
         savingUserWords();
     }
 }
