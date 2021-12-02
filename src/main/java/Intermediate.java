@@ -51,12 +51,8 @@ public class Intermediate {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-
-        initConversation();
-        listDivisibleByThreeOrFive();
+    public static void savingUserWords() {
         print("Soll ich bestimmte Wörter für dich speichern? Tippe y für ja, oder n für nein. :)");
-        Thread.sleep(500);
         String yn = userInput();
         if (yn.equalsIgnoreCase("y")) {
             print("Welche Wörter soll ich speichern? :)");
@@ -77,5 +73,12 @@ public class Intermediate {
 //            }
 //        }
 //        System.out.println("Test ob es weiter geht.");
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
+        initConversation();
+        listDivisibleByThreeOrFive();
+        savingUserWords();
     }
 }
