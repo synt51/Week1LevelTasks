@@ -90,8 +90,8 @@ public class Intermediate {
     }
 
     public static void main(String[] args) {
-      //initConversation();
-        // listDivisibleByThreeOrFive();
+        initConversation();
+        listDivisibleByThreeOrFive();
         savingUserWords();
     }
 }
