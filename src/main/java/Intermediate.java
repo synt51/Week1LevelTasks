@@ -26,18 +26,30 @@ public class Intermediate {
         print("Hey, willst du wissen, wie man die Zahlen 1 - 10 ausschreibt?");
         print("Nenne mir eine dieser Zahlen und bestätige Sie mit ENTER :)");
         int num = numInput();
-        print(num + " ausgeschrieben ist: " + numbersInWord[num - 1] + ".");
-        if (num % 3 == 0) {
-            print("Deine Zahl ist durch 3 teilbar.");
-        } else if (num % 5 == 0) {
-            print("Deine Zahl ist durch 5 teilbar.");
-        } else {
-            print("Deine Zahl ist weder durch 3, noch durch 5 teilbar.");
+
+        if (num <= 10 && num > 0) {
+            print(num + " ausgeschrieben ist: " + numbersInWord[num - 1] + ".");
+            if (num % 3 == 0) {
+                print("Deine Zahl ist durch 3 teilbar.");
+            } else if (num % 5 == 0) {
+                print("Deine Zahl ist durch 5 teilbar.");
+            } else {
+                print("Deine Zahl ist weder durch 3, noch durch 5 teilbar.");
+            }
+            }else {
+            print("Deine Zahl ist nicht zwischen 1 und 10, aber probier es doch nochmal. :)");
         }
     }
 
-    public static void listDivisibleByThreeOrFive() {
+    public static void listDivisibleByThreeOrFive() throws InterruptedException {
         print("Aber ich kann dir auch zeigen, welche Zahlen alles zwischen 1 und 100 durch 3 (# vor der Zahl) oder 5 ($ vor der Zahl) teilbar sind.");
+        Thread.sleep(5000);
+        print("3 :)");
+        Thread.sleep(1000);
+        print("2 :)");
+        Thread.sleep(1000);
+        print("1 :)");
+        Thread.sleep(1000);
         print("Hier die Liste:");
         for (int i = 1; i <= 100; i++) {
             if (i % 3 == 0 && i % 5 == 0) {
@@ -88,7 +100,7 @@ public class Intermediate {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         initConversation();
         listDivisibleByThreeOrFive();
         savingUserWords();
