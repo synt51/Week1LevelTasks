@@ -68,7 +68,7 @@ public class Intermediate {
             print("Etwas ist schief gelaufen... Starte das Programm bitte neu :(");
             System.exit(0);
         }
-        while (InputActive) {
+        while (true) {
             print("Diese Wörter hast du bereits gespeichert:");
             print("" + WordsArray);
             String inputWord = scanner.nextLine();
@@ -76,12 +76,11 @@ public class Intermediate {
             print("Willst du ein weiteres Wort bei mir speichern? Tippe wieder y für ja, oder n für nein und bestätige das mit ENTER :)");
             String inputInputActive = scanner.nextLine();
             if (inputInputActive.equals("y")) {
-                //InputActive = true;
                 print("Wie lautet dein nächstes Wort? :)");
             } else if (inputInputActive.equals("n")) {
                 print("Also kein weiteres Wort? Ok :(");
                 print("Deine gespeicherten Begriffe sind: " + WordsArray);
-                InputActive = false;
+                break;
             } else {
                 print("Etwas ist schief gelaufen... Starte das Programm bitte neu :(");
                 System.exit(0);
@@ -90,8 +89,8 @@ public class Intermediate {
     }
 
     public static void main(String[] args) {
-      //initConversation();
-        // listDivisibleByThreeOrFive();
+        initConversation();
+        listDivisibleByThreeOrFive();
         savingUserWords();
     }
 }
