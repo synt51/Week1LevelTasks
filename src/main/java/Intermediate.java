@@ -55,7 +55,7 @@ public class Intermediate {
     public static void savingUserWords() {
         Scanner scanner = new Scanner(System.in);
         boolean InputActive = true;
-        ArrayList<String> WordsArray = new ArrayList<>();
+        ArrayList<String> wordsArray = new ArrayList<>();
 
         print("Soll ich bestimmte Wörter für dich speichern? Tippe y für ja, oder n für nein und bestätige das mit ENTER. :)");
         String yn = userInput();
@@ -70,16 +70,16 @@ public class Intermediate {
         }
         while (true) {
             print("Diese Wörter hast du bereits gespeichert:");
-            print("" + WordsArray);
+            print("" + wordsArray);
             String inputWord = scanner.nextLine();
-            WordsArray.add(inputWord);
+            wordsArray.add(inputWord);
             print("Willst du ein weiteres Wort bei mir speichern? Tippe wieder y für ja, oder n für nein und bestätige das mit ENTER :)");
             String inputInputActive = scanner.nextLine();
             if (inputInputActive.equals("y")) {
                 print("Wie lautet dein nächstes Wort? :)");
             } else if (inputInputActive.equals("n")) {
                 print("Also kein weiteres Wort? Ok :(");
-                print("Deine gespeicherten Begriffe sind: " + WordsArray);
+                print("Deine gespeicherten Begriffe sind: " + wordsArray);
                 break;
             } else {
                 print("Etwas ist schief gelaufen... Starte das Programm bitte neu :(");
